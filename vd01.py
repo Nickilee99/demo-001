@@ -1,40 +1,17 @@
-import web
-urls = (
-'/', 'index'
-)
-class index:
-    def GET(self):
-        return "Welcome !!! LE DINH NGUYEN 2175406 !"
-
-if __name__ == "__main__":
-    app = web.application(urls, globals())
-    app.run()
-
-    from math import sqrt
-
-print("Giải phương trình bậc 2: ax^2 + bx + c = 0")
-a = float(input("Nhập a: "))
-b = float(input("Nhập b: "))
-c = float(input("Nhập c: "))
-
-if a == 0:
-    if b == 0:
-        if c == 0:
-            print("Phương trình vô số nghiệm!")
-        else:
-            print("Phương trình vô nghiệm!")
-    else:
-        if c == 0:
-            print("Phương trình có 1 nghiệm x = 0")
-        else:
-            print("Phương trình có 1 nghiệm x = ", -c / b)
-else:
-    delta = b ** 2 - 4 * a * c
-    if delta < 0:
-        print("Phương trình vô nghiệm!")
-    elif delta == 0:
-        print("Phương trình có 1 nghiệm x = ", -b / (2 * a))
-    else:
-        print("Phương trình có 2 nghiệm phân biệt!")
-        print("x1 = ", float((-b - sqrt(delta)) / (2 * a)))
-        print("x2 = ", float((-b + sqrt(delta)) / (2 * a)))
+import math
+def pt(a,b,c):
+    delta = b*b - 4*a*c
+    if delta > 0 :
+        x1 = (-b + math.sqrt(delta))/(2*a)
+        x2 = (-b - math.sqrt(delta))/(2*a)
+        print "phuong trinh bac 2 co hai nghiem phan biet"
+        print "x1= %3.2f x2= %3.2f " %(x1,x2)
+    elif delta ==0 :
+       print "phuong trinh co nghiem kep x1=x2= %3.2f" %(-b/2*a)
+    else :
+       print "phuong trinh vo nghiem"  
+print "Nhap lan luot he so a,b,c cua phuong trinh bac 2"	   
+a = float(raw_input('he so a:'))
+b = float(input('he so b:'))
+c = float(input('he so c:'))
+pt(a,b,c)
